@@ -1,5 +1,5 @@
 # Publish GitHub workflow artifacts tutorial example
-name: Upload & DOwnload Artifacts Example
+name: Upload & Download Artifacts Example
 
 on:
   workflow_dispatch:
