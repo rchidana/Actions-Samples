@@ -28,6 +28,7 @@ jobs:
           path: downloads
 
   download-sample-artifacts:
+    needs: upload-sample-artifacts
     runs-on: ubuntu-latest
     steps:
 
