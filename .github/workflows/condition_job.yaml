@@ -1,4 +1,4 @@
-name: Run Job based on step outputs
+name: test
 on:
   workflow_dispatch:
 jobs:
@@ -6,7 +6,7 @@ jobs:
     name: job_a
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Job A"
+      - run: echo "Job A Run Successfully"
       - id: set
         run: |
           echo "::set-output name=run_job_b::yes"
@@ -19,13 +19,13 @@ jobs:
       - job_a
     if: needs.job_a.outputs.run_job_b == 'yes'
     steps:
-      - run: echo "B"
-  c:
-    name: c
+      - run: echo "Job B Run Successfully, after Job A"
+  job_c:
+    name: job_c
     runs-on: ubuntu-latest
     needs:
       - job_a
       - job_b
     if: needs.job_b.result == 'success' || needs.job_b.result == 'skipped'
     steps:
-      - run: echo "C"
+      - run: echo "Job C Run Successfully, after Job A & Job B"
