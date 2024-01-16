@@ -1,4 +1,4 @@
-name: test
+name: Conditional Job run based on step output
 on:
   workflow_dispatch:
 jobs:
